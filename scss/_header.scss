@@ -1,0 +1,164 @@
+.header {
+   background-color: $main;
+   position: fixed;
+   width: 100%;
+   z-index: 50;
+
+   &__container {
+      padding: 0 20px;
+      height: 100px;
+      max-width: $container;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__logo {
+      position: relative;
+      z-index: 3;
+   }
+
+   &__list {
+      display: flex;
+      gap: 40px;
+
+      a {
+         color: white;
+         font-size: 18px;
+         border-radius: 100px;
+         padding: 2px 5px;
+         transition: all 0.1s;
+      }
+
+      a:hover {
+         background-color: white;
+         color: $secondColor;
+      }
+   }
+
+   &__block {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+   }
+
+   &__contacts {
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: right;
+
+      a {
+         color: white;
+      }
+
+      p:first-child {
+         color: $backgorund;
+      }
+
+      p:last-child {
+         color: white;
+      }
+   }
+
+   &__menu-contacts {
+      display: none;
+   }
+
+   &__menu-button {
+      display: none;
+      position: relative;
+      z-index: 3;
+      height: 27px;
+      width: 32px;
+
+      span {
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+         height: 13%;
+         width: 100%;
+         background-color: rgb(255, 255, 255);
+         transition: all 0.3s;
+      }
+   }
+
+   &__menu-button::before,
+   &__menu-button::after {
+      content: '';
+      position: absolute;
+      height: 13%;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      transition: all 0.3s;
+   }
+
+   &__menu-button::before {
+      top: 0;
+   }
+
+   &__menu-button::after {
+      bottom: 0;
+   }
+
+   &__menu-button._active span {
+      transform: translateY(-50%) scale(0);
+      background-color: rgb(255, 255, 255);
+   }
+
+   &__menu-button._active::before {
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      background-color: rgb(255, 255, 255);
+   }
+
+   &__menu-button._active::after {
+      bottom: 50%;
+      transform: translateY(50%) rotate(45deg);
+      background-color: rgb(255, 255, 255);
+   }
+
+   @media (max-width: 930px) {
+
+      &__list {
+         background-color: $main;
+         z-index: 1;
+         padding: 50px 20px 20px 20px;
+         height: 100vh;
+         flex-direction: column;
+         justify-content: center;
+         text-align: right;
+         position: fixed;
+         min-width: 420px;
+         top: 0;
+         right: -450px;
+         transition: right 0.3s;
+      }
+
+      &__list._active {
+         right: 0;
+      }
+
+      &__list-item {
+         font-size: 20px;
+      }
+
+      &__menu-button {
+         display: block;
+      }
+   }
+
+   @media (max-width: 520px) {
+      &__contacts {
+         display: none;
+      }
+
+      &__menu-contacts {
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+      }
+   }
+}

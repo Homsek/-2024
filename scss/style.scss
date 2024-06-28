@@ -1,0 +1,98 @@
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat+Alternates:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900);
+
+$main: #546F4F;
+$secondColor: #26212F;
+$backgorund: #EEE2DC;
+$container: 1410px;
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   font-family: Montserrat;
+   background-color: $backgorund;
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+.title-block {
+   font-family: montserrat alternates;
+   font-size: clamp(20px, 4.5vw, 40px);
+   line-height: 140%;
+   text-transform: uppercase;
+   position: relative;
+   display: flex;
+   align-items: center;
+   margin-bottom: 60px;
+
+
+   span {
+      margin-left: 30px;
+      height: 3px;
+      max-width: 100%;
+      flex: 1 0 auto;
+   }
+
+   @media (max-width: 375px) {
+      &{
+         margin-bottom: 30px;
+      }
+      span {
+         display: none;
+      }
+   }
+}
+
+.button {
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 140%;
+   border: 1px solid $secondColor;
+   border-radius: 10px;
+   width: fit-content;
+   align-self: end;
+   padding: 5px 15px;
+   transition: all 0.1s;
+   background: none;
+}
+
+.button:hover {
+   color: $backgorund;
+   background-color: $secondColor;
+}
+
+.button:active {
+   box-shadow: 0 0 15px $secondColor;
+}
+
+.container {
+   max-width: $container;
+   margin: 0 auto;
+   padding: 100px 20px
+}
+
+@media (max-width: 768px) {
+   .container {
+      padding: 70px 20px
+   }
+}
+
+@media (max-width: 375px) {
+   .container {
+      padding: 50px 20px
+   }
+}
+
+
+._lock {
+   overflow: hidden;
+}
+
+@import "_null", "_header", "_main", "_footer", "_modal";
